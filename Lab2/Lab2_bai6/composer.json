@@ -1,0 +1,17 @@
+{
+    "name": "phucbt2607/lab2bai6",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+            
+        }
+    },
+    "authors": [
+        {
+            "name": "phucbt2706",
+            "email": "trongphuceazy06@gmail.com"
+        }
+    ],
+    "require": {}
+}
