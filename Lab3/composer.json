@@ -1,0 +1,16 @@
+{
+    "name": "os/lab2_bai1234",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "phucbt2706",
+            "email": "trongphuceazy06@gmail.com"
+        }
+    ],
+    "require": {}
+}
