@@ -8,7 +8,7 @@ $course = [
 function  get_courses()
 {
     global $course;
-    return array_values($course);
+    return $course;
 }
 function  find_by_semester($semester)
 {
@@ -24,8 +24,13 @@ $page_content = $course_name;
 ?>
 
 <?= $page_content; ?>
-<select name="courses">
-    <?php foreach ($list_of_course as $course_name){?>
-    <option><?= $course_name ?></option>
-   <?php }?>
-</select>
+
+<form action="" method="get">
+    <select name="semester">
+        <?php foreach ($list_of_course as $key => $value){?>
+        <option value="<?= $key ?>" ><?= $key ?></option>
+    <?php }?>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
