@@ -1,4 +1,5 @@
 <?php
+//data
 $course = [
     's1' => 'course1',
     's2' => 'course2',
@@ -22,7 +23,7 @@ $semester = !empty($_GET['semester']) ? $_GET['semester'] : '';
 $course_name = find_by_semester($semester);
 $page_content = $course_name;
 ?>
-
+<!-- View -->
 <?= $page_content; ?>
 
 <form action="" method="get">
