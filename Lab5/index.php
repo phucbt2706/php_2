@@ -4,7 +4,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 
 use app\Core\Route;
+use app\Core\Database;
 
+$db = new Database();
 $route = new Route();
 
 $route->get('/',[\app\controller\Home::class, 'index']);

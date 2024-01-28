@@ -2,7 +2,7 @@
 namespace app\model;
 
 use app\Core\Database;
-class Login{
+class Login extends Database{
     public string $email;
     public string $password;
     public function login():string {
