@@ -2,7 +2,7 @@
 namespace app\model;
 
 use app\Core\Database;
-class Login extends Database{
+class Login{
     public string $email;
     public string $password;
     public function login():string {
@@ -26,15 +26,15 @@ class Login extends Database{
             ';
         }
     }
-    public function loginHandle(){
-        if(isset($_POST['submit'])){
-            $this->email = $_POST['email'];
-            $this->password = $_POST['password'];
-            $this->loginUser();
-        }else{
-            echo "No value!";
-        }
-    }
+    // public function loginHandle(){
+    //     if(isset($_POST['submit'])){
+    //         $this->email = $_POST['email'];
+    //         $this->password = $_POST['password'];
+    //         $this->loginUser();
+    //     }else{
+    //         echo "No value!";
+    //     }
+    // }
 
     public function register(){
         echo 'register page';
@@ -54,39 +54,39 @@ class Login extends Database{
         return true;
     }
 
-    public function loginUser(){
-        if ($this->emptyInput() == false){
-            header('Location:/register?error=emptyInput');
-            exit();
-        }
+    // public function loginUser(){
+    //     if ($this->emptyInput() == false){
+    //         header('Location:/register?error=emptyInput');
+    //         exit();
+    //     }
         
-        if ( $this->invalidEmail() == false){
-            header('Location:/register?error=invalidEmail');
-            exit();
-        }
+    //     if ( $this->invalidEmail() == false){
+    //         header('Location:/register?error=invalidEmail');
+    //         exit();
+    //     }
 
-        $this->getUser($this->email,$this->password);
-    }
-
-    public function getUser($email,$password){
-        $stmt = $this->connect()->query("SELECT * FROM users WHERE email='{$email}'");
-        if($stmt->num_rows == 0){
-            $stmt = null;
-            header("Location:login?error=userfound");
-            exit();
-        }
-
-        $user = $stmt->fetch_array(MYSQLI_ASSOC);
-
-        $check_password = password_verify($password, $user['password']);
-
-        if($check_password == false) {
-            $stmt = null;
-            header("location: login?error=wrongpassword");
-            exit();
-
-        }else if($check_password == true) {
-            $_SESSION['user'] = $user;
-        }
-    }
+    //     $this->getUser($this->email,$this->password);
+    // }
 }
+//     public function getUser($email,$password){
+//         $stmt = $this->connect()->query("SELECT * FROM users WHERE email='{$email}'");
+//         if($stmt->num_rows == 0){
+//             $stmt = null;
+//             header("Location:login?error=userfound");
+//             exit();
+//         }
+
+//         $user = $stmt->fetch_array(MYSQLI_ASSOC);
+
+//         $check_password = password_verify($password, $user['password']);
+
+//         if($check_password == false) {
+//             $stmt = null;
+//             header("location: login?error=wrongpassword");
+//             exit();
+
+//         }else if($check_password == true) {
+//             $_SESSION['user'] = $user;
+//         }
+//     }
+// }
